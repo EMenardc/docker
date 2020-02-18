@@ -1,0 +1,57 @@
+{
+  "logger": {
+    "level": "debug",
+    "timestamp": false
+  },
+  "esclient": {
+    "apiVersion": "7.5",
+    "hosts": [
+      { "host": "elasticsearch" }
+    ]
+  },
+  "elasticsearch": {
+    "settings": {
+      "index": {
+        "refresh_interval": "10s",
+        "number_of_replicas": "0",
+        "number_of_shards": "1"
+      }
+    }
+  },
+  "api": {
+    "services": {
+      "pip": { "url": "http://pip:4200" },
+      "libpostal": { "url": "http://libpostal:4400" },
+      "placeholder": { "url": "http://placeholder:4100" },
+      "interpolation": { "url": "http://interpolation:4300" }
+    },
+    "defaultParameters": {
+      "focus.point.lat": 46.61,
+      "focus.point.lon": 2.45
+    }
+  },
+  "imports": {
+    "adminLookup": {
+      "enabled": true
+    },
+    "geonames": {
+      "datapath": "/data/geonames",
+      "countryCode": "CA"
+    },
+    "openstreetmap": {
+      "download": [
+        { "sourceURL": "http://download.geofabrik.de/north-america/canada/quebec-latest.osm.pbf" }
+      ],
+      "leveldbpath": "/tmp",
+      "datapath": "/data/openstreetmap",
+      "import": [{
+        "filename": "quebec-latest.osm.pbf"
+      }]
+    },
+    "openaddresses": {
+      "datapath": "/data/openaddresses",
+      "files": ["ca/qc/gatineau.csv", "ca/qc/montreal.csv", "ca/qc/laval.csv", "ca/qc/repentigny.csv"]
+    }
+  }
+}
+
