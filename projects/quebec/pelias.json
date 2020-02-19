@@ -57,7 +57,7 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "http://download.geofabrik.de/north-america/canada/quebec-latest.osm.pbf" }
+        { "sourceURL": "https://download.geofabrik.de/north-america/canada/quebec-latest.osm.pbf" }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
