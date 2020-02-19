@@ -1,6 +1,6 @@
 {
   "logger": {
-    "level": "debug",
+    "level": "info",
     "timestamp": false
   },
   "esclient": {
@@ -18,25 +18,42 @@
       }
     }
   },
+  "acceptance-tests": {
+    "endpoints": {
+      "docker": "http://api:4000/v1/"
+    }
+  },
   "api": {
     "services": {
-      "pip": { "url": "http://pip:4200" },
-      "libpostal": { "url": "http://libpostal:4400" },
       "placeholder": { "url": "http://placeholder:4100" },
-      "interpolation": { "url": "http://interpolation:4300" }
+      "pip": { "url": "http://pip:4200" },
+      "interpolation": { "url": "http://interpolation:4300" },
+      "libpostal": { "url": "http://libpostal:4400" }
     },
     "defaultParameters": {
-      "focus.point.lat": 46.61,
-      "focus.point.lon": 2.45
+      "focus.point.lat": 45.50,
+      "focus.point.lon": -73.56
     }
   },
   "imports": {
     "adminLookup": {
       "enabled": true
     },
+    "blacklist": {
+      "files": [
+        "/data/blacklist/osm.txt"
+      ]
+    },
+    "csv": {
+      "datapath": "/data/csv",
+      "files": [],
+      "download": [
+        "https://raw.githubusercontent.com/pelias/csv-importer/master/data/example.csv"
+      ]
+    },
     "geonames": {
       "datapath": "/data/geonames",
-      "countryCode": "CA"
+      "countryCode": "ALL"
     },
     "openstreetmap": {
       "download": [
@@ -50,8 +67,18 @@
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
-      "files": ["ca/qc/gatineau.csv", "ca/qc/montreal.csv", "ca/qc/laval.csv", "ca/qc/repentigny.csv"]
+      "files": [
+        "ca/qc/gatineau.csv",
+        "ca/qc/laval.csv",
+        "ca/qc/longueuil.csv",
+        "ca/qc/montreal.csv",
+        "ca/qc/rimouski.csv",
+        "ca/qc/rouyn-noranda.csv"
+      ]
+    },
+    "polyline": {
+      "datapath": "/data/polylines",
+      "files": [ "extract.0sv" ]
     }
   }
 }
-
